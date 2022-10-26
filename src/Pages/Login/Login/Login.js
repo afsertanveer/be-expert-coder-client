@@ -1,10 +1,48 @@
-import React from 'react';
+import { GithubAuthProvider, GoogleAuthProvider } from 'firebase/auth';
+import React, { useContext } from 'react';
 import Button from "react-bootstrap/Button";
 import Form from "react-bootstrap/Form";
+import toast from 'react-hot-toast';
 import { FaGithub, FaGoogle } from 'react-icons/fa';
 import { Link } from 'react-router-dom';
+import { AuthContext } from '../../../Context/AuthProvider';
 
 const Login = () => {
+    const { githubLogin, googleLogin } = useContext(AuthContext);
+
+    // github login button action 
+    const handleGithubLogin = () =>{
+        githubLogin()
+        .then(result=>{
+            const credential = GithubAuthProvider.credentialFromResult(result);
+            const token = credential.accessToken;
+
+            // The signed-in user info.
+            const user = result.user;
+            console.log(user);
+            toast.success('Successful Github Login');
+        })
+        .catch(error=>{
+            console.error("Error=> ",error);
+        })
+    }
+    const handleGoogleLogin = () =>{
+        googleLogin()
+        .then(result=>{
+               const credential =
+                 GoogleAuthProvider.credentialFromResult(result);
+               const token = credential.accessToken;
+               // The signed-in user info.
+               const user = result.user;
+               console.log(user);
+            toast.success(`Succesful Google Login ${user.displayName}`)
+        })
+        .catch(error=>{
+            console.error("Error==> ",error);
+        })
+    }
+
+
     return (
       <Form
         style={{ marginTop: "50px" }}
@@ -31,11 +69,14 @@ const Login = () => {
         <p className="mt-3">
           Not Member? <Link to="/register">Register</Link>
         </p>
-        <div className='text-center'>
-          <Button variant="light d-block mb-4 w-100" >
+        <div className="text-center">
+          <Button
+            onClick={handleGoogleLogin}
+            variant="light d-block mb-4 w-100"
+          >
             <FaGoogle></FaGoogle> Sign in With Google
           </Button>
-          <Button variant="light d-block w-100">
+          <Button onClick={handleGithubLogin} variant="light d-block w-100">
             <FaGithub></FaGithub> Sign in With Github
           </Button>
         </div>
