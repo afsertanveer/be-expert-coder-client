@@ -22,8 +22,11 @@ const Home = () => {
             with the world to be prepared as developer.
           </p>
         </div>
-        <div className='p-3 border border-dark mt-5'>
-        <h1 className='fw-bold mb-4'> All the courses and interview preparations we are offering now! </h1>
+        <h1 className="fw-bold mb-4">
+      
+          All the courses and interview preparations we are offering now!{" "}
+        </h1>
+        <div className="p-3 border border-dark mt-5">
           <Carousel className="slider">
             <Carousel.Item>
               <img
