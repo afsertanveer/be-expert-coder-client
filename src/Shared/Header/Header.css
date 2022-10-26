@@ -16,3 +16,6 @@
   color: aqua;
   margin-top: 10px;
 }
+.toggleButton {
+  max-width: 62px;
+}

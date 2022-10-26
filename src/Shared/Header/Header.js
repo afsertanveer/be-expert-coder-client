@@ -35,11 +35,19 @@ const Header = () => {
             </Nav>
             <Nav className="login">
               {btnName ? (
-                <Button onClick={toggleButton} variant="dark">
+                <Button
+                  className="ms-3 mt-2 toggleButton"
+                  onClick={toggleButton}
+                  variant="dark"
+                >
                   Dark
                 </Button>
               ) : (
-                <Button onClick={toggleButton} variant="dark">
+                <Button
+                  className="ms-3 mt-2 toggleButton"
+                  onClick={toggleButton}
+                  variant="light"
+                >
                   Light
                 </Button>
               )}
