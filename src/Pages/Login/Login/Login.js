@@ -8,7 +8,26 @@ import { Link } from 'react-router-dom';
 import { AuthContext } from '../../../Context/AuthProvider';
 
 const Login = () => {
-    const { githubLogin, googleLogin } = useContext(AuthContext);
+    const { githubLogin, googleLogin, userSignIn } = useContext(AuthContext);
+
+
+    //normal user login
+    const handleSubmit = event =>{
+        event.preventDefault();
+        const form = event.target;
+        const email = form.email.value;
+        const password = form.password.value;
+        // console.log(email,password);
+        userSignIn(email,password)
+        .then(result=>{
+            const user = result.user;
+            toast.success("Succesfully Logged in")
+        })
+        .catch(error=>{
+            toast.error(error);
+        })
+    }
+
 
     // github login button action 
     const handleGithubLogin = () =>{
@@ -45,6 +64,7 @@ const Login = () => {
 
     return (
       <Form
+        onSubmit={handleSubmit}
         style={{ marginTop: "50px" }}
         className="border border-dark p-5 bg-dark text-white"
       >
