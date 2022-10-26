@@ -37,7 +37,7 @@ const Header = () => {
             <Nav className="login">
               {btnName ? (
                 <Button
-                  className="ms-3 mt-2 toggleButton"
+                  className="ms-3 toggleButton"
                   onClick={toggleButton}
                   variant="dark"
                 >
@@ -45,7 +45,7 @@ const Header = () => {
                 </Button>
               ) : (
                 <Button
-                  className="ms-3 mt-2 toggleButton"
+                  className="ms-3 toggleButton"
                   onClick={toggleButton}
                   variant="light"
                 >

@@ -10,7 +10,7 @@ const Main = () => {
       <div>
         <Header></Header>
         <div className="container-lg mt-5">
-          <Row>
+          <Row className='mb-5'>
             <Col lg={"4"} className="d-none d-lg-block">
               <LeftNavBar></LeftNavBar>
             </Col>
