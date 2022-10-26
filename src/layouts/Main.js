@@ -9,12 +9,12 @@ const Main = () => {
     return (
       <div>
         <Header></Header>
-        <div className='container-lg mt-5'>
+        <div className="container-lg mt-5">
           <Row>
-            <Col lg={"3"}>
+            <Col lg={"4"} className="d-none d-lg-block">
               <LeftNavBar></LeftNavBar>
             </Col>
-            <Col lg={"9"}>
+            <Col lg={"8"} sm={"12"}>
               <Outlet></Outlet>
             </Col>
           </Row>

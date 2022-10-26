@@ -18,16 +18,17 @@ const LeftNavBar = () => {
           fetchData();
     },[])
     return (
-      <div>
+      <div style={{ marginTop:"50px" }}>
         <h2>All Courses</h2>
         {courses.map((course) => (
           <Link
-            className="mb-2 fw-bold text-success"
+            className="d-block fw-bold text-success"
             key={course.id}
             to={`/courses/${course.id}`}
           >
             <small>{course.course_name}</small>
           </Link>
+          
         ))}
       </div>
     );

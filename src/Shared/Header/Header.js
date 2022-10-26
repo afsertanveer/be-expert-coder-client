@@ -7,6 +7,7 @@ import Navbar from "react-bootstrap/Navbar";
 import { FaUserAlt } from "react-icons/fa";
 import { Link } from 'react-router-dom';
 import Logo from '../../assets/website-logo/logo.gif';
+import LeftNavBar from '../LeftNavBar/LeftNavBar';
 import './Header.css';
 
 const Header = () => {
@@ -51,10 +52,13 @@ const Header = () => {
                   Light
                 </Button>
               )}
-              <Link>Login</Link>
-              <Link>Register</Link>
+              <Link to='/login'>Login</Link>
+              <Link to='/register'>Register</Link>
               <FaUserAlt className="ms-3 mt-3"></FaUserAlt>
             </Nav>
+            <div className="d-lg-none">
+              <LeftNavBar></LeftNavBar>
+            </div>
           </Navbar.Collapse>
         </Container>
       </Navbar>

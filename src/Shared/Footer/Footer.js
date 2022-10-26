@@ -2,9 +2,11 @@ import React from 'react';
 
 const Footer = () => {
     return (
-        <div>
-            <p><small>This is footer</small></p>
-        </div>
+      <div className="text-center fixed-bottom">
+        <p>
+          <small>This is footer</small>
+        </p>
+      </div>
     );
 };
 

@@ -15,16 +15,19 @@ const Home = () => {
         <div className="text-center header-details">
           <Image src={logo} className="w-75"></Image>
           <p className="mt-5 border border-white p-4 fw-bold">
-            Do you want to be a Software Developer? Do you want to be ready for
-            Job Interview? Are you new to Software Developer? Here you can be
-            educate yourself for all the three criteria mentioned above!! Just
-            go through our coursed and descriptions and enroll soon to cope up
-            with the world to be prepared as developer.
+            <span className="text-danger fs-4">
+              Do you want to be a Software Developer? Do you want to be ready
+              for Job Interview? Are you new to Software Developer?
+            </span>
+            <span> 
+              Here you can educate yourself for all the three criterias
+              mentioned above!! Just go through our courses and descriptions.
+              Enroll soon to cope up with the world to be prepared as developer.
+            </span>
           </p>
         </div>
         <h1 className="fw-bold mb-4">
-      
-          All the courses and interview preparations we are offering now!{" "}
+          All the courses and interview preparations we are offering now!
         </h1>
         <div className="p-3 border border-dark mt-5">
           <Carousel className="slider">
