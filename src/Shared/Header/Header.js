@@ -52,8 +52,8 @@ const Header = () => {
                   Light
                 </Button>
               )}
-              <Link to='/login'>Login</Link>
-              <Link to='/register'>Register</Link>
+              <Link className='fw-bold' to='/login'>Login</Link>
+              <Link className='fw-bold' to='/register'>Register</Link>
               <FaUserAlt className="ms-3 mt-3"></FaUserAlt>
             </Nav>
             <div className="d-lg-none">

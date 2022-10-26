@@ -19,7 +19,7 @@ const Home = () => {
               Do you want to be a Software Developer? Do you want to be ready
               for Job Interview? Are you new to Software Developer?
             </span>
-            <span> 
+            <span>
               Here you can educate yourself for all the three criterias
               mentioned above!! Just go through our courses and descriptions.
               Enroll soon to cope up with the world to be prepared as developer.

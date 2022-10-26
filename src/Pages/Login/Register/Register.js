@@ -31,14 +31,11 @@ const Register = () => {
         <Form.Label>Password</Form.Label>
         <Form.Control type="password" name="password" placeholder="Password" />
       </Form.Group>
-      <Form.Group className="mb-3" controlId="formBasicCheckbox">
-        <Form.Check type="checkbox" label="Check me out" />
-      </Form.Group>
       <Button variant="light" type="submit">
         Register
       </Button>
       <p className="mt-3">
-        Not Member? <Link to="/register">Register</Link>
+        Already a member? <Link to="/login">Login</Link>
       </p>
     </Form>
   );
