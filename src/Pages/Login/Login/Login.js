@@ -4,13 +4,16 @@ import Button from "react-bootstrap/Button";
 import Form from "react-bootstrap/Form";
 import toast from 'react-hot-toast';
 import { FaGithub, FaGoogle } from 'react-icons/fa';
-import { Link } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../../Context/AuthProvider';
 
+  
 const Login = () => {
+    
+    const navigate = useNavigate();
     const { githubLogin, googleLogin, userSignIn } = useContext(AuthContext);
-
-
+    const location = useLocation();
+    const from = location.state?.from?.pathname || "/";
     //normal user login
     const handleSubmit = event =>{
         event.preventDefault();
@@ -21,7 +24,8 @@ const Login = () => {
         userSignIn(email,password)
         .then(result=>{
             const user = result.user;
-            toast.success("Succesfully Logged in")
+            navigate(from, { replace: true });
+            toast.success("Succesfully Logged in");
         })
         .catch(error=>{
             toast.error(error);

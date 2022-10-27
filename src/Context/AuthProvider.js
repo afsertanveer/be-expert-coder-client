@@ -1,4 +1,4 @@
-import { createUserWithEmailAndPassword, getAuth, GithubAuthProvider, GoogleAuthProvider, onAuthStateChanged, signInWithEmailAndPassword, signInWithPopup, updateProfile } from 'firebase/auth';
+import { createUserWithEmailAndPassword, getAuth, GithubAuthProvider, GoogleAuthProvider, onAuthStateChanged, signInWithEmailAndPassword, signInWithPopup, signOut, updateProfile } from 'firebase/auth';
 import React, { createContext, useEffect, useState } from 'react';
 import app from './../firebase/firebase.config';
 
@@ -8,43 +8,57 @@ const githubProvider = new GithubAuthProvider();
 const googleProvider = new GoogleAuthProvider();
 const AuthProvider = ({children}) => {
   const [user, setUser] = useState(null);
+  const [loading, setLoading] = useState(true);
 
-  //create user with email and password
-  const createUser = (email, password) => {
-    return createUserWithEmailAndPassword(auth, email, password);
-  };
-
-  //sign in with email and password
-
-  const userSignIn = (email,password)=>{
-    return signInWithEmailAndPassword(auth,email,password);
-  }
-
-  //create-user-google
-  const googleLogin = () => {
-    return signInWithPopup(auth, googleProvider);
-  };
-  // create-user-github
-  const githubLogin = () => {
-    return signInWithPopup(auth, githubProvider);
-  };
- 
-  //update user Profile
-  const updateUserProfile = (profile) => {
-    return updateProfile(auth.currentUser, profile);
-  };
   // current user catching
   useEffect(() => {
     const unSubscribe = onAuthStateChanged(auth, (currentUser) => {
       if (user === null) {
-        console.log("user inside state change", currentUser);
         setUser(currentUser);
       }
+
+      setLoading(false);
     });
     return () => {
       unSubscribe();
     };
   }, []);
+
+  //create user with email and password
+  const createUser = (email, password) => {
+    setLoading(true);
+    return createUserWithEmailAndPassword(auth, email, password);
+  };
+
+  //sign in with email and password
+
+  const userSignIn = (email, password) => {
+    setLoading(true);
+    return signInWithEmailAndPassword(auth, email, password);
+  };
+
+  //create-user-google
+  const googleLogin = () => {
+    setLoading(true);
+    return signInWithPopup(auth, googleProvider);
+  };
+  // create-user-github
+  const githubLogin = () => {
+    setLoading(true);
+    return signInWithPopup(auth, githubProvider);
+  };
+
+  //update user Profile
+  const updateUserProfile = (profile) => {
+    setLoading(true);
+    return updateProfile(auth.currentUser, profile);
+  };
+
+  //signout
+  const userSignOut = () => {
+    setLoading(true);
+    return signOut(auth);
+  };
 
   const authInfo = {
     user,
@@ -53,6 +67,9 @@ const AuthProvider = ({children}) => {
     updateUserProfile,
     googleLogin,
     githubLogin,
+    userSignOut,
+    loading,
+    setLoading
   };
   return (
     <div>

@@ -19,14 +19,14 @@ const LeftNavBar = () => {
     },[])
     return (
       <div style={{ marginTop:"50px" }}>
-        <h2>All Courses</h2>
+        <h2 className='text-center fw-bold'>All Courses</h2>
         {courses.map((course) => (
           <Link
             className="d-block fw-bold text-success"
             key={course.id}
             to={`/courses/${course.id}`}
           >
-            <small>{course.course_name}</small>
+            {course.course_name}
           </Link>
           
         ))}
