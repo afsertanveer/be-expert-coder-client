@@ -1,22 +1,22 @@
 import React from 'react';
-import { Button, Card, Container } from 'react-bootstrap';
+import { Card, Container } from 'react-bootstrap';
 import { FaChevronRight, FaDownload, FaStar } from 'react-icons/fa';
-import { useLoaderData } from 'react-router-dom';
+import { useLoaderData, useNavigate } from 'react-router-dom';
 import Pdf from "react-to-pdf";
 
 import './CourseDetails.css';
 const CoursesDetails = () => {
-  const options = {
-    orientation: "landscape",
-    unit: "in",
-    format: [4, 2],
-  };
-   const ref = React.createRef();
+   
     const course = useLoaderData();
     const {id,course_name,image_url,description,prerequisite,duration,ratings,students} =course;
+    const ref = React.createRef();
+    const navigate = useNavigate();
+    const handPremium = ()=>{
+      navigate(`/premium-access/${id}`);
+    }
     return (
       <Container>
-        <Card className="mb-5" style={{ width: "60%", margin: "50px auto"  }}>
+        <Card className="mb-5" style={{ width: "60%", margin: "50px auto" }}>
           <div ref={ref}>
             <Card.Img variant="top" src={image_url} />
             <Card.Body>
@@ -52,16 +52,16 @@ const CoursesDetails = () => {
             </Card.Body>
           </div>
           <div className="d-flex justify-content-between">
-            <Button className="buy-button my-3">
-              Get Premium Service <FaChevronRight></FaChevronRight>
-            </Button>
+              <button onClick={handPremium} className=" p-2 rounded-2 ms-2 buy-button my-3">
+                Get Premium Service <FaChevronRight></FaChevronRight>
+              </button>
             <Pdf targetRef={ref} filename="code-example.pdf">
               {({ toPdf }) => (
                 <button
                   className="mb-2 px-4 bg-danger text-white fw-bold rounded"
                   onClick={toPdf}
                 >
-                  <FaDownload className='h-50'></FaDownload> PDF
+                  <FaDownload className="h-50"></FaDownload> PDF
                 </button>
               )}
             </Pdf>
