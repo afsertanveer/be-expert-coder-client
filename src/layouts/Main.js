@@ -8,9 +8,10 @@ const Main = () => {
       <div>
         <Header></Header>
         <div className="container-lg mt-5">
-        <Outlet></Outlet>
-         <Footer></Footer>
+          <Outlet></Outlet>
         </div>
+
+        <Footer></Footer>
       </div>
     );
 };

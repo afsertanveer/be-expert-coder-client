@@ -16,9 +16,10 @@
   color: aqua;
   margin-top: 10px;
 }
-.toggleButton {
+.toggle-Button {
   max-width: 62px;
   max-height: 25px;
-  padding-top: 0;
-  margin-top: 10px;
+  padding-top: 0px;
+  padding-bottom: 15px;
+  margin-top: 12px;
 }

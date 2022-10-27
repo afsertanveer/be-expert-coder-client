@@ -53,7 +53,7 @@ const Header = () => {
               <Link to="/blogs">Blogs</Link>
               {btnName ? (
                 <Button
-                  className="ms-3 toggleButton"
+                  className="ms-3 toggle-Button"
                   onClick={toggleButton}
                   variant="dark"
                 >
@@ -61,7 +61,7 @@ const Header = () => {
                 </Button>
               ) : (
                 <Button
-                  className="ms-3 toggleButton"
+                  className="ms-3 toggle-Button"
                   onClick={toggleButton}
                   variant="light"
                 >
