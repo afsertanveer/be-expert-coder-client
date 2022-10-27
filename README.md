@@ -17,7 +17,7 @@ A toggle button is added in the navbar which will be toggled and in future it wi
 <li>
 This website is a single page application. So it navigates too fast.
 </li>
-<h1>Technologies:
+<h1>Technologies:</h1>
 <li>
 React
 </li>
