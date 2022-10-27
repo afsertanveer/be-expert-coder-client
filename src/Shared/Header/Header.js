@@ -13,7 +13,6 @@ import './Header.css';
 
 const Header = () => {
     const {user,userSignOut} = useContext(AuthContext);
-    console.log(user);
     const [btnName,setBtnName] = useState(false);
     const [nameDisplay,setNameDisplay] = useState(false);
     const toggleButton = () =>{
@@ -72,18 +71,23 @@ const Header = () => {
             </Nav>
 
             <Nav className="login">
-              {nameDisplay && user?.displayName && (
-                <p className="text-white mx-2">{user.displayName}</p>
-              )}
+              <div className="me-2">
+                {nameDisplay && user?.displayName && (
+                  <span className="text-white mx-2 d-block">
+                    {user.displayName}
+                  </span>
+                )}
+              </div>
+
               {user?.uid ? (
                 <>
                   {user?.photoURL && (
                     <Image
+                      className="ms-3 mt-1 w-50"
                       onMouseOver={handleHoverIn}
                       onMouseOut={handleHoverOut}
-                      className="ms-3 mt-1 w-50"
                       src={user.photoURL}
-                      style={{ height: "35px" }}
+                      style={{ height: "45px" }}
                     ></Image>
                   )}
                   <Button onClick={handleButton} variant="link">
