@@ -5,7 +5,6 @@ import CourseCard from '../Courses/CourseCard/CourseCard';
 
 const CheckOut = () => {
     const course = useLoaderData();
-    console.log(course);
     return (
       <div className="container">
         <h1>Buy This course and get service for lifetime on every update</h1>

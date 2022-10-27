@@ -29,10 +29,7 @@ const Blogs = () => {
           configuration.
         </p>
         <p>
-          As a Google Cloud service, it also gives you access to other Google
-          products and features, like Google Drive and Sheets. For instance, you
-          can import dummy data from Google Sheets and use it temporarily to
-          serve your app.
+          Alternatives of firebase are MongoDB,Oracle Database, Amazon RedShift, DataStax Enterprise, Redis Enterprise Cloud, DB2, Couchbase Server etc.
         </p>
       </div>
       <div className="m-3">

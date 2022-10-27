@@ -1,4 +1,4 @@
-import { GithubAuthProvider, GoogleAuthProvider } from 'firebase/auth';
+import { GoogleAuthProvider } from 'firebase/auth';
 import React, { useContext, useState } from 'react';
 import Button from "react-bootstrap/Button";
 import Form from "react-bootstrap/Form";
@@ -40,12 +40,11 @@ const Login = () => {
     const handleGithubLogin = () =>{
         githubLogin()
         .then(result=>{
-            const credential = GithubAuthProvider.credentialFromResult(result);
-            const token = credential.accessToken;
-
-            // The signed-in user info.
+            
             const user = result.user;
             toast.success('Successful Github Login');
+            
+            navigate(from, { replace: true });
         })
         .catch(error=>{
             console.error("Error=> ",error);
@@ -56,10 +55,10 @@ const Login = () => {
         .then(result=>{
                const credential =
                  GoogleAuthProvider.credentialFromResult(result);
-               const token = credential.accessToken;
-               // The signed-in user info.
-               const user = result.user;
+                 const user= result.user;
             toast.success(`Succesful Google Login ${user.displayName}`)
+            
+            navigate(from, { replace: true });
         })
         .catch(error=>{
             console.error("Error==> ",error);
