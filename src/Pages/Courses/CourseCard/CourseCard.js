@@ -8,7 +8,7 @@ const CourseCard = ({course}) => {
       <Col lg={"6"} className="p-2">
         <Card className="rounded border course-card  border-dark">
           <div>
-            <Card.Img variant="top" src={image_url} />
+            <Card.Img className='card-img' variant="top" src={image_url} />
           </div>
           <Card.Body>
             <Card.Title className="fw-bolder">{course_name}</Card.Title>
