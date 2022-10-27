@@ -1,5 +1,5 @@
 import { GithubAuthProvider, GoogleAuthProvider } from 'firebase/auth';
-import React, { useContext } from 'react';
+import React, { useContext, useState } from 'react';
 import Button from "react-bootstrap/Button";
 import Form from "react-bootstrap/Form";
 import toast from 'react-hot-toast';
@@ -9,9 +9,10 @@ import { AuthContext } from '../../../Context/AuthProvider';
 
   
 const Login = () => {
-    
+    const [error, setError] = useState("");
     const navigate = useNavigate();
-    const { githubLogin, googleLogin, userSignIn } = useContext(AuthContext);
+    const { githubLogin, googleLogin, userSignIn, setLoading } =
+      useContext(AuthContext);
     const location = useLocation();
     const from = location.state?.from?.pathname || "/";
     //normal user login
@@ -20,16 +21,20 @@ const Login = () => {
         const form = event.target;
         const email = form.email.value;
         const password = form.password.value;
-        // console.log(email,password);
-        userSignIn(email,password)
-        .then(result=>{
+        console.log(email,password);
+        userSignIn(email, password)
+          .then((result) => {
             const user = result.user;
             navigate(from, { replace: true });
             toast.success("Succesfully Logged in");
-        })
-        .catch(error=>{
-            toast.error(error);
-        })
+          })
+          .catch((error) => {
+            console.log("asdasdasd errorL ",error);
+            setError(error.message);
+          })
+          .finally(() => {
+            setLoading(false);
+          });
     }
 
 
@@ -90,6 +95,8 @@ const Login = () => {
         <Button variant="light" type="submit">
           Login
         </Button>
+
+        {error && <p style={{ color: "red" }}>{error}</p>}
         <p className="mt-3">
           Not Member? <Link to="/register">Register</Link>
         </p>
