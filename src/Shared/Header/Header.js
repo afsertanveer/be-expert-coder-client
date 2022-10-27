@@ -9,7 +9,6 @@ import { FaUserAlt } from "react-icons/fa";
 import { Link } from 'react-router-dom';
 import Logo from '../../assets/website-logo/logo.gif';
 import { AuthContext } from '../../Context/AuthProvider';
-import LeftNavBar from '../LeftNavBar/LeftNavBar';
 import './Header.css';
 
 const Header = () => {
@@ -89,9 +88,6 @@ const Header = () => {
                 </>
               )}
             </Nav>
-            <div className="d-lg-none">
-              <LeftNavBar></LeftNavBar>
-            </div>
           </Navbar.Collapse>
         </Container>
       </Navbar>

@@ -3,7 +3,7 @@ import { Image } from 'react-bootstrap';
 import Carousel from "react-bootstrap/Carousel";
 import DotNet from '../../../assets/courses/.net.jpg';
 import Cplusplus from '../../../assets/courses/cplusplus.jpeg';
-import Java from '../../../assets/courses/java.png';
+import Java from '../../../assets/courses/java.jpg';
 import Laravel from '../../../assets/courses/laravel.png';
 import Mern from '../../../assets/courses/mern.png';
 import Python from '../../../assets/courses/python.png';

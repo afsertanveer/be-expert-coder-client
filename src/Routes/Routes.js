@@ -5,7 +5,6 @@ import Login from "../Pages/Login/Login/Login";
 import Register from "../Pages/Login/Register/Register";
 import Main from './../layouts/Main';
 import Home from './../Pages/Home/Home/Home';
-import PrivateRoute from "./PrivateRoute/PrivateRoute";
 
 export const routes = createBrowserRouter([
   {
@@ -27,12 +26,12 @@ export const routes = createBrowserRouter([
       {
         path:'/courses',
         loader:()=>fetch('https://be-expert-coder-server.vercel.app/courses'),
-        element:<PrivateRoute><Courses></Courses></PrivateRoute>
+        element:<Courses></Courses>
       },
       {
         path:'/courses/:id',
         loader:({params})=>fetch(`https://be-expert-coder-server.vercel.app/courses/${params.id}`),
-        element:<PrivateRoute><CoursesDetails></CoursesDetails></PrivateRoute>
+        element:<CoursesDetails></CoursesDetails>
       }
     ],
   },

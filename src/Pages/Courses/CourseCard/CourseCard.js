@@ -1,12 +1,12 @@
 import React from 'react';
 import { Card, Col } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
-
+import './CourseCard.css';
 const CourseCard = ({course}) => {
     const {id,course_name,description,image_url} = course;
     return (
       <Col lg={"6"} className="p-2">
-        <Card className="rounded border  border-dark">
+        <Card className="rounded border course-card  border-dark">
           <div>
             <Card.Img variant="top" src={image_url} />
           </div>

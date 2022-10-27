@@ -9,7 +9,11 @@ const PrivateRoute = ({ children }) => {
   console.log("private route: ",loading);
   console.log(location);
   if (loading) {
-    return <Spinner className="mx-auto" animation="grow" variant="danger" />;
+    return (
+      <div className="text-center">
+        <Spinner animation="grow" variant="danger" />
+      </div>
+    );
   }
   if (!user) {
     return <Navigate to="/login" state={{ from: location }} replace></Navigate>;
