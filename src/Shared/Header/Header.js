@@ -83,7 +83,7 @@ const Header = () => {
                 <>
                   {user?.photoURL && (
                     <Image
-                      className="ms-3 mt-1 w-50"
+                      className="ms-3 mt-1"
                       onMouseOver={handleHoverIn}
                       onMouseOut={handleHoverOut}
                       src={user.photoURL}
