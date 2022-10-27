@@ -13,7 +13,9 @@ import './Header.css';
 
 const Header = () => {
     const {user,userSignOut} = useContext(AuthContext);
+    console.log(user);
     const [btnName,setBtnName] = useState(false);
+    const [nameDisplay,setNameDisplay] = useState(false);
     const toggleButton = () =>{
         setBtnName(!btnName);
     }
@@ -25,6 +27,12 @@ const Header = () => {
         .catch(error=>{
             toast.error(error);
         })
+    }
+    const handleHoverIn = () =>{
+      setNameDisplay(!nameDisplay);
+    }
+    const handleHoverOut = () =>{
+      setNameDisplay(!nameDisplay)
     }
     return (
       <Navbar
@@ -41,11 +49,9 @@ const Header = () => {
           <Navbar.Toggle aria-controls="responsive-navbar-nav" />
           <Navbar.Collapse id="responsive-navbar-nav">
             <Nav className="menu me-auto">
-              <Link to='/courses'>Courses</Link>
-              <Link to='/faq'>FAQ</Link>
-              <Link to='/blogs'>Blogs</Link>
-            </Nav>
-            <Nav className="login">
+              <Link to="/courses">Courses</Link>
+              <Link to="/faq">FAQ</Link>
+              <Link to="/blogs">Blogs</Link>
               {btnName ? (
                 <Button
                   className="ms-3 toggleButton"
@@ -63,10 +69,18 @@ const Header = () => {
                   Light
                 </Button>
               )}
+            </Nav>
+
+            <Nav className="login">
+              {nameDisplay && user?.displayName && (
+                <p className="text-white mx-2">{user.displayName}</p>
+              )}
               {user?.uid ? (
                 <>
-                  {user.photoURL && (
+                  {user?.photoURL && (
                     <Image
+                      onMouseOver={handleHoverIn}
+                      onMouseOut={handleHoverOut}
                       className="ms-3 mt-1 w-50"
                       src={user.photoURL}
                       style={{ height: "35px" }}
