@@ -1,4 +1,5 @@
 import { createBrowserRouter } from "react-router-dom";
+import Blogs from "../Pages/Blogs/Blogs";
 import Courses from '../Pages/Courses/Courses/Courses';
 import CoursesDetails from "../Pages/Courses/CoursesDetails/CoursesDetails";
 import Login from "../Pages/Login/Login/Login";
@@ -45,8 +46,25 @@ export const routes = createBrowserRouter([
           fetch(
             `https://be-expert-coder-server.vercel.app/courses/${params.id}`
           ),
-        element: <PrivateRoute><CheckOut></CheckOut></PrivateRoute>,
+        element: (
+          <PrivateRoute>
+            <CheckOut></CheckOut>
+          </PrivateRoute>
+        ),
+      },
+      {
+        path: "/blogs",
+        element: <Blogs></Blogs>,
       },
     ],
+  },
+  {
+    path: "*",
+    element: (
+      <div className="text-danger text-center mt-5">
+        <h1 className="font-bolder">404</h1>
+        <h2 className="font-bolder">This route is not found!</h2>
+      </div>
+    ),
   },
 ]);

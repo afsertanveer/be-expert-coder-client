@@ -21,7 +21,6 @@ const Login = () => {
         const form = event.target;
         const email = form.email.value;
         const password = form.password.value;
-        console.log(email,password);
         userSignIn(email, password)
           .then((result) => {
             const user = result.user;
@@ -29,7 +28,6 @@ const Login = () => {
             toast.success("Succesfully Logged in");
           })
           .catch((error) => {
-            console.log("asdasdasd errorL ",error);
             setError(error.message);
           })
           .finally(() => {
@@ -47,7 +45,6 @@ const Login = () => {
 
             // The signed-in user info.
             const user = result.user;
-            console.log(user);
             toast.success('Successful Github Login');
         })
         .catch(error=>{
@@ -62,7 +59,6 @@ const Login = () => {
                const token = credential.accessToken;
                // The signed-in user info.
                const user = result.user;
-               console.log(user);
             toast.success(`Succesful Google Login ${user.displayName}`)
         })
         .catch(error=>{
