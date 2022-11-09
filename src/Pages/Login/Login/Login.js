@@ -1,4 +1,3 @@
-import { GoogleAuthProvider } from 'firebase/auth';
 import React, { useContext, useState } from 'react';
 import Button from "react-bootstrap/Button";
 import Form from "react-bootstrap/Form";
@@ -23,7 +22,6 @@ const Login = () => {
         const password = form.password.value;
         userSignIn(email, password)
           .then((result) => {
-            const user = result.user;
             navigate(from, { replace: true });
             toast.success("Succesfully Logged in");
           })
@@ -41,7 +39,6 @@ const Login = () => {
         githubLogin()
         .then(result=>{
             
-            const user = result.user;
             toast.success('Successful Github Login');
             
             navigate(from, { replace: true });
@@ -53,8 +50,6 @@ const Login = () => {
     const handleGoogleLogin = () =>{
         googleLogin()
         .then(result=>{
-               const credential =
-                 GoogleAuthProvider.credentialFromResult(result);
                  const user= result.user;
             toast.success(`Succesful Google Login ${user.displayName}`)
             

@@ -1,4 +1,4 @@
-import React, { useContext } from 'react';
+import React from 'react';
 import { Image } from 'react-bootstrap';
 import Carousel from "react-bootstrap/Carousel";
 import DotNet from '../../../assets/courses/.net.jpg';
@@ -8,10 +8,8 @@ import Laravel from '../../../assets/courses/laravel.png';
 import Mern from '../../../assets/courses/mern.png';
 import Python from '../../../assets/courses/python.png';
 import logo from '../../../assets/website-logo/logo.gif';
-import { AuthContext } from '../../../Context/AuthProvider';
 import './Home.css';
 const Home = () => {
-    const {user} = useContext(AuthContext);
     return (
       <div>
         <div className="text-center header-details">

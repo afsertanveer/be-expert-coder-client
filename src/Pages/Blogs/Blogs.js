@@ -4,7 +4,7 @@ const Blogs = () => {
   return (
     <div className=" my-5 py-5 px-2 mx-5 bg-white pt-3 border border-dark">
       <div className="m-3">
-        <h3 className="fw-bold"> what is cors?</h3>
+        <h3 className="fw-bold"> What is cors?</h3>
         <p className="mt-4">
           Cross-origin resource sharing (CORS) is a browser mechanism which
           enables controlled access to resources located outside of a given

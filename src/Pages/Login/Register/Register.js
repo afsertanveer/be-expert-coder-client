@@ -21,7 +21,6 @@ const Register = () => {
         };
         createUser(email,password)
         .then(result=>{
-            const user = result.user;
             updateUserProfile(profile)
             .then(()=>{})
             .catch(error=>{

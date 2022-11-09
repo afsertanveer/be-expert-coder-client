@@ -1,11 +1,9 @@
-import React, { useContext } from 'react';
+import React from 'react';
 import { Col, Row } from 'react-bootstrap';
 import { useLoaderData } from 'react-router-dom';
-import { AuthContext } from '../../../Context/AuthProvider';
 import LeftNavBar from '../../../Shared/LeftNavBar/LeftNavBar';
 import CourseCard from '../CourseCard/CourseCard';
 const Courses = () => {
-    const {user} = useContext(AuthContext)
     const courses = useLoaderData();
     return (
       <Row className="g-3">
